@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:29:26 by truello           #+#    #+#             */
-/*   Updated: 2023/10/19 17:17:46 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/19 17:23:33 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,13 @@ long int	get_precision(const char *str, va_list	*args, int *len_buf)
 			res_cpy /= 10;
 			i++;
 		}
+		*len_buf = i;
+		return (res);
 	}
-	else
+	while (ft_is_digit(str[i]))
 	{
-		while (ft_is_digit(str[i]))
-		{
-			res = res * 10 + str[i] - '0';
-			i++;
-		}
+		res = res * 10 + str[i] - '0';
+		i++;
 	}
 	*len_buf = i;
 	return (res);
