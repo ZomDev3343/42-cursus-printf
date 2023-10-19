@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:57:43 by truello           #+#    #+#             */
-/*   Updated: 2023/10/19 16:53:51 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/19 17:18:56 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_format
 	long int	precision;
 	int			p_len;
 
-}	t_format(-1, -1, -1, -1, 0);
+}	t_format;
 
 int			ft_printf(const char *str, ...);
 
@@ -42,8 +42,10 @@ t_bool		is_width(char c);
 t_bool		is_precision(char c);
 t_bool		ft_is_digit(char c);
 
+t_format	newformat(void);
+
 /* Precision */
 
-long int	get_precision(const char *str);
+long int	get_precision(const char *str, va_list *args, int *len_buf);
 
 #endif

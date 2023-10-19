@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:00:37 by truello           #+#    #+#             */
-/*   Updated: 2023/10/19 16:54:34 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/19 17:19:36 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static int	parse_format(const char *str, va_list *args)
 	int				total;
 
 	i = 0;
+	total = 0;
 	while (str[i] && !is_specifier(str[i]))
 	{
 		if (is_flag(str[i]))
@@ -29,6 +30,7 @@ static int	parse_format(const char *str, va_list *args)
 			format.precision = get_precision(str + i, args, &(format.p_len));
 		i++;
 	}
+	return (total);
 }
 
 int	ft_printf(const char *str, ...)
