@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:00:37 by truello           #+#    #+#             */
-/*   Updated: 2023/10/20 11:54:03 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/20 17:44:10 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static int	print_format(t_format *format, va_list *args)
 
 	specifier = format->specifier;
 	if (specifier == 'c')
-		return (print_character(format, va_arg(*args, signed int)));
-	else if (specifier == 's')
+		return (print_character(format, va_arg(*args, int)));
+	/*else if (specifier == 's')
 		return (print_string(format, va_arg(*args, char *)));
 	else if (specifier == 'p')
 		return (print_pointer(format, va_arg(*args, void *)));
@@ -33,13 +33,14 @@ static int	print_format(t_format *format, va_list *args)
 		return (print_hexa_low(format, va_arg(*args, unsigned int)));
 	else
 		return (print_hexa_up(format, va_arg(*args, unsigned int)));
+	*/
+	return (0);
 }
 
 static int	parse_format(const char *str, va_list *args)
 {
 	unsigned char	i;
 	t_format		format;
-	int				total;
 
 	i = 0;
 	format = newformat();
@@ -60,8 +61,7 @@ static int	parse_format(const char *str, va_list *args)
 		format.specifier = str[i];
 	if (format.specifier == -1)
 		return (0);
-	total = print_format(&format, args);
-	return (total);
+	return (print_format(&format, args));
 }
 
 int	ft_printf(const char *str, ...)
@@ -77,14 +77,14 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%' && *(str + 1) != '%')
 		{
 			format_len = parse_format(str + 1, &args);
-			total += format_len + 1;
+			total += format_len;
 			str += format_len + 1;
 		}
 		else
 		{
 			ft_putchar(*str);
-			str += 1 + (*(str + 1) == '%');
-			total += 1 + (*(str + 1) == '%');
+			str += 1 + (*(str) == '%');
+			total++;
 		}
 	}
 	va_end(args);
