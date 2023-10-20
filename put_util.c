@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_2.c                                         :+:      :+:    :+:   */
+/*   put_util.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 17:30:40 by truello           #+#    #+#             */
-/*   Updated: 2023/10/20 11:26:27 by truello          ###   ########.fr       */
+/*   Created: 2023/10/20 10:52:23 by truello           #+#    #+#             */
+/*   Updated: 2023/10/20 10:54:18 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_format	newformat(void)
+void	ft_putchar(char c)
 {
-	t_format	format;
+	write(1, &c, 1);
+}
 
-	format.specifier = -1;
-	format.flag = -1;
-	format.width = -1;
-	format.precision = 0;
-	format.p_len = 0;
-	return (format);
+void	ft_putstr(const char *str)
+{
+	while (*str)
+		write(1, str++, 1);
 }

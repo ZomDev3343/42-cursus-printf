@@ -1,1 +1,5 @@
 *.swp
+*.out
+*.o
+*.a
+test.c

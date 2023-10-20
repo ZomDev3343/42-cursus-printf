@@ -1,5 +1,6 @@
-SRC=ft_printf.c precision.c format.c
+SRC=ft_printf.c precision.c format.c put_util.c
 OBJ=$(SRC:.c=.o)
+TEST=test.c
 NAME=libftprintf.a
 HEADER=ft_printf.h
 
@@ -10,6 +11,9 @@ $(NAME): $(OBJ) $(HEADER)
 
 %.o: %.c
 	cc -c -Wall -Wextra -Werror $< -o $@
+
+test:
+	cc -Wall -Wextra -Werror $(SRC) $(TEST)
 
 clean:
 	rm -rf *.o
