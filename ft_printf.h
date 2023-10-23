@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:57:43 by truello           #+#    #+#             */
-/*   Updated: 2023/10/20 12:01:26 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/23 16:57:43 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,9 @@ typedef unsigned char	t_bool;
 typedef struct s_format
 {
 	char		specifier;
-	char		flag;
-	char		width;
-	long int	precision;
-	int			p_len;
-
+	char		flags[5];
+	int			width;
+	int			precision;
 }	t_format;
 
 int			ft_printf(const char *str, ...);
@@ -46,12 +44,17 @@ t_format	newformat(void);
 
 /* Precision */
 
-long int	get_precision(const char *str, va_list *args, int *len_buf);
+int	parse_num(const char *str, va_list *args);
 
 /* Put utils */
 
 void		ft_putchar(char c);
 void		ft_putstr(const char *str);
+
+/* Conversion utils */
+
+char	*ft_itoa(int n);
+int		ft_atoi(const char *str);
 
 /* Printable Types */
 
@@ -63,5 +66,11 @@ int			print_integer(t_format *format, signed int n);
 int			print_unsigned_decimal(t_format *format, unsigned int n);
 int			print_hexa_low(t_format *format, unsigned int n);
 int			print_hexa_up(t_format *format, unsigned int n);
+
+/* Util */
+
+unsigned int	get_n_len(int n);
+void			add_flag(char flag, t_format *format);
+t_bool			has_flag(char flag, t_format *format);
 
 #endif
