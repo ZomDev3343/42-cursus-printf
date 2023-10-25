@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:57:43 by truello           #+#    #+#             */
-/*   Updated: 2023/10/23 16:57:43 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/25 11:43:25 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,42 +30,47 @@ typedef struct s_format
 	int			precision;
 }	t_format;
 
-int			ft_printf(const char *str, ...);
+int				ft_printf(const char *str, ...);
 
 /* Format */
 
-t_bool		is_specifier(char c);
-t_bool		is_flag(char c);
-t_bool		is_width(char c);
-t_bool		is_precision(char c);
-t_bool		ft_is_digit(char c);
+t_bool			is_specifier(char c);
+t_bool			is_flag(char c);
+t_bool			is_width(char c);
+t_bool			is_precision(char c);
+t_bool			ft_is_digit(char c);
 
-t_format	newformat(void);
+t_format		newformat(void);
 
 /* Precision */
 
-int	parse_num(const char *str, va_list *args);
+int				parse_num(const char *str, va_list *args);
 
 /* Put utils */
 
-void		ft_putchar(char c);
-void		ft_putstr(const char *str);
+void			ft_putchar(char c);
+void			ft_putstr(const char *str);
 
 /* Conversion utils */
 
-char	*ft_itoa(int n);
-int		ft_atoi(const char *str);
+char			*ft_itoa(int n);
+int				ft_atoi(const char *str);
 
 /* Printable Types */
 
-int			print_character(t_format *format, signed int c);
-int			print_string(t_format *format, char *str);
-int			print_pointer(t_format *format, void *ptr);
-int			print_decimal(t_format *format, signed int n);
-int			print_integer(t_format *format, signed int n);
-int			print_unsigned_decimal(t_format *format, unsigned int n);
-int			print_hexa_low(t_format *format, unsigned int n);
-int			print_hexa_up(t_format *format, unsigned int n);
+int				print_character(t_format *format, int c);
+int				print_string(t_format *format, char *str);
+int				print_pointer(t_format *format, void *ptr);
+int				print_decimal(t_format *format, int n);
+int				print_integer(t_format *format, int n);
+int				print_unsigned_decimal(t_format *format, unsigned int n);
+int				print_hexa_low(t_format *format, unsigned int n);
+int				print_hexa_up(t_format *format, unsigned int n);
+
+/* Print Flags */
+
+int				print_padding(t_format *format, int width);
+int				print_ox(t_format *format);
 
 /* Util */
 

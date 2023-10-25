@@ -6,7 +6,8 @@ SRC=ft_printf.c \
 	printer.c \
 	printer_2.c \
 	conversion.c \
-	util.c
+	util.c \
+	print_flags.c
 OBJ=$(SRC:.c=.o)
 TEST=test.c
 NAME=libftprintf.a

@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:43:12 by truello           #+#    #+#             */
-/*   Updated: 2023/10/23 17:09:13 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/25 11:20:57 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ unsigned int	get_n_len(int n)
 	unsigned int	res;
 
 	nb = n;
-	res = 1;
+	res = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		res++;

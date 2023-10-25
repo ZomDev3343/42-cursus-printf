@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:29:26 by truello           #+#    #+#             */
-/*   Updated: 2023/10/23 16:47:15 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/24 15:33:18 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 int	parse_num(const char *str, va_list	*args)
 {
-	int	res;
-	int	res_cpy;
+	int			res;
 	int			i;
 
-	i = 1;
+	i = 0;
 	res = 0;
 	if (str[i] == '*')
 		return (va_arg(*args, int));
