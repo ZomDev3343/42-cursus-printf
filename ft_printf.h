@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:57:43 by truello           #+#    #+#             */
-/*   Updated: 2023/10/25 11:43:25 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/26 11:42:48 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,21 @@ t_format		newformat(void);
 /* Precision */
 
 int				parse_num(const char *str, va_list *args);
+int				print_zeros(int amount);
+int				max(int a, int b);
+int				min(int a, int b);
 
 /* Put utils */
 
 void			ft_putchar(char c);
 void			ft_putstr(const char *str);
+int				ft_putstrn(const char *str, int n);
 
 /* Conversion utils */
 
 char			*ft_itoa(int n);
 int				ft_atoi(const char *str);
+char			*hex(size_t n);
 
 /* Printable Types */
 
@@ -74,8 +79,15 @@ int				print_ox(t_format *format);
 
 /* Util */
 
+unsigned int	get_n_len_base(int n, unsigned int base);
 unsigned int	get_n_len(int n);
 void			add_flag(char flag, t_format *format);
 t_bool			has_flag(char flag, t_format *format);
+size_t			ft_strlen(const char *s);
+
+int				lop(int len, int precision);
+int				get_zeros(int precision, int print_len);
+void			right_padding(t_format *format, int *len, int zeros);
+void			left_padding(t_format *format, int *len, int zeros);
 
 #endif

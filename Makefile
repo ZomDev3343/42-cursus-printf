@@ -7,6 +7,7 @@ SRC=ft_printf.c \
 	printer_2.c \
 	conversion.c \
 	util.c \
+	util2.c \
 	print_flags.c
 OBJ=$(SRC:.c=.o)
 TEST=test.c

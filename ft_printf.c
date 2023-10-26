@@ -6,22 +6,21 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:00:37 by truello           #+#    #+#             */
-/*   Updated: 2023/10/25 11:40:07 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/25 14:47:20 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/* TODO Passer les format en tant que t_format** au lieu de t_format **/
 static int	print_format(t_format *format, va_list *args)
 {
 	if (format->specifier == 'c')
 		return (print_character(format, va_arg(*args, int)));
 	else if (format->specifier == 's')
 		return (print_string(format, va_arg(*args, char *)));
-	/*else if (format->specifier == 'p')
+	else if (format->specifier == 'p')
 		return (print_pointer(format, va_arg(*args, void *)));
-	else if (format->specifier == 'd')
+	/*else if (format->specifier == 'd')
 		return (print_decimal(format, va_arg(*args, int)));
 	else if (format->specifier == 'i')
 		return (print_integer(format, va_arg(*args, int)));
@@ -45,12 +44,12 @@ static int	parse_character(const char *s, t_format *format, va_list *args)
 	else if (is_width(*s))
 	{
 		format->width = parse_num(s, args);
-		return (get_n_len(format->width));
+		return (get_n_len(format->width) - 1);
 	}
 	else if (is_precision(*s))
 	{
 		format->precision = parse_num(s + 1, args);
-		return (1 + get_n_len(format->precision));
+		return (1 + get_n_len(format->precision) - 1);
 	}
 	else
 		return (0);

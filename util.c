@@ -6,19 +6,21 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:43:12 by truello           #+#    #+#             */
-/*   Updated: 2023/10/25 11:20:57 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/25 14:47:31 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	get_n_len(int n)
+unsigned int	get_n_len_base(int n, unsigned int base)
 {
 	long int		nb;
 	unsigned int	res;
 
 	nb = n;
-	res = 0;
+	res = 1;
+	if (base == 0)
+		return (0);
 	if (n == 0)
 		return (1);
 	if (n < 0)
@@ -28,10 +30,15 @@ unsigned int	get_n_len(int n)
 	}
 	while (nb > 0)
 	{
-		nb /= 10;
+		nb /= base;
 		res++;
 	}
 	return (res);
+}
+
+unsigned int	get_n_len(int n)
+{
+	return (get_n_len_base(n, 10));
 }
 
 void	add_flag(char flag, t_format *format)
@@ -62,4 +69,16 @@ t_bool	has_flag(char flag, t_format *format)
 		i++;
 	}
 	return (FALSE);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i])
+		i++;
+	return (i);
 }

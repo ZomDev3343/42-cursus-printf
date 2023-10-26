@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 18:25:41 by truello           #+#    #+#             */
-/*   Updated: 2023/10/20 18:37:49 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/25 15:32:07 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,28 @@ char	*ft_itoa(int n)
 		i++;
 	}
 	return (r);
+}
+
+char	*hex(size_t n)
+{
+	const char	*hex_table = "0123456789abcdef";
+	char		*res;
+	int			n_len;
+	int			i;
+
+	n_len = get_n_len_base(n, 16);
+	res = (char *) malloc(n_len + 1);
+	if (!res)
+		return (NULL);
+	res[n_len] = '\0';
+	i = 0;
+	if (n == 0)
+		res[0] = '0';
+	while (n != 0)
+	{
+		res[n_len - 1 - i] = hex_table[n % 16];
+		n /= 16;
+		i++;
+	}
+	return (res);
 }

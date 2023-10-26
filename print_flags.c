@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 13:50:04 by truello           #+#    #+#             */
-/*   Updated: 2023/10/25 11:35:45 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/26 11:29:43 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	print_padding(t_format *format, int width)
 
 int	print_ox(t_format *format)
 {
-	if (has_flag('x', format))
+	if (has_flag('x', format) || format->specifier == 'p')
 	{
 		ft_putstr("0x");
 		return (2);
@@ -41,4 +41,17 @@ int	print_ox(t_format *format)
 	}
 	else
 		return (0);
+}
+
+int	print_sign(t_format *format, int n)
+{
+	if (has_flag('+', format))
+	{
+		if (n < 0)
+			ft_putchar('+');
+		else
+			ft_putchar('-');
+		return (1);
+	}
+	return (0);
 }
