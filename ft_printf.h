@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:57:43 by truello           #+#    #+#             */
-/*   Updated: 2023/10/26 11:42:48 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/26 14:25:00 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int				min(int a, int b);
 void			ft_putchar(char c);
 void			ft_putstr(const char *str);
 int				ft_putstrn(const char *str, int n);
+void			ft_putnbrn(int n, int len);
 
 /* Conversion utils */
 
@@ -76,6 +77,7 @@ int				print_hexa_up(t_format *format, unsigned int n);
 
 int				print_padding(t_format *format, int width);
 int				print_ox(t_format *format);
+int				print_sign(t_format *format, int n);
 
 /* Util */
 

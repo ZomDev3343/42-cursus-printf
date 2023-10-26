@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 13:50:04 by truello           #+#    #+#             */
-/*   Updated: 2023/10/26 11:29:43 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/26 14:50:28 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ int	print_sign(t_format *format, int n)
 			ft_putchar('+');
 		else
 			ft_putchar('-');
+		return (1);
+	}
+	else if (n < 0)
+	{
+		ft_putchar('-');
 		return (1);
 	}
 	return (0);
