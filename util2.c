@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:10:31 by truello           #+#    #+#             */
-/*   Updated: 2023/10/26 11:59:40 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/26 15:13:14 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	lop(int len, int precision)
 {
 	if (precision == -1)
 		return (len);
-	return (min(len, precision));
+	return (max(len, precision));
 }
 
 int	get_zeros(int precision, int print_len)

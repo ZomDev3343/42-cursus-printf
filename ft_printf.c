@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:00:37 by truello           #+#    #+#             */
-/*   Updated: 2023/10/26 14:02:05 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/26 15:06:56 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,11 @@ static int	print_format(t_format *format, va_list *args)
 		return (print_string(format, va_arg(*args, char *)));
 	else if (format->specifier == 'p')
 		return (print_pointer(format, va_arg(*args, void *)));
-	else if (format->specifier == 'd')
+	else if (format->specifier == 'd' || format->specifier == 'i')
 		return (print_decimal(format, va_arg(*args, int)));
-	/*else if (format->specifier == 'i')
-		return (print_integer(format, va_arg(*args, int)));
 	else if (format->specifier == 'u')
 		return (print_unsigned_decimal(format, va_arg(*args, unsigned int)));
-	else if (format->specifier == 'x')
+	/*else if (format->specifier == 'x')
 		return (print_hexa_low(format, va_arg(*args, unsigned int)));
 	else
 		return (print_hexa_up(format, va_arg(*args, unsigned int)));

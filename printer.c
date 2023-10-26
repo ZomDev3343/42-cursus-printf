@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:46:39 by truello           #+#    #+#             */
-/*   Updated: 2023/10/26 14:58:51 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/26 15:45:19 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ int	print_character(t_format *format, int c)
 	int	print_len;
 
 	print_len = 1;
-	if (!has_flag('-', format))
-		print_len += print_padding(format, format->width - 1);
+	right_padding(format, &print_len, 0);
 	ft_putchar((char) c);
-	if (has_flag('-', format))
-		print_len += print_padding(format, format->width - 1);
+	left_padding(format, &print_len, 0);
 	return (print_len);
 }
 
@@ -60,7 +58,7 @@ int	print_pointer(t_format *format, void *ptr)
 	ft_putstrn(hex_ptr, lop(ft_strlen(hex_ptr), format->precision));
 	free(hex_ptr);
 	left_padding(format, &len, zeros);
-	return (len + zeros);
+	return (len);
 }
 
 int	print_decimal(t_format *format, int n)
@@ -68,14 +66,30 @@ int	print_decimal(t_format *format, int n)
 	int	len;
 	int	zeros;
 
-	len = lop(get_n_len(n) - 1, format->precision);
+	len = get_n_len(n) - 1;
 	zeros = get_zeros(format->precision, get_n_len(n) - 1);
 	right_padding(format, &len, zeros);
 	if (format->precision == 0 && n == 0)
 		return (0);
 	len += print_sign(format, n);
 	print_zeros(zeros);
-	ft_putnbrn(n, lop(get_n_len(n) - 1, format->precision));
+	ft_putnbrn(n, get_n_len(n) - 1);
+	left_padding(format, &len, zeros);
+	return (len + zeros + (n == 0));
+}
+
+int	print_unsigned_decimal(t_format *format, unsigned int n)
+{
+	int	len;
+	int	zeros;
+
+	len = get_n_len(n) - 1;
+	zeros = get_zeros(format->precision, get_n_len(n) - 1);
+	right_padding(format, &len, zeros);
+	if (format->precision == 0 && n == 0)
+		return (0);
+	print_zeros(zeros);
+	ft_putnbrn(n, get_n_len(n) - 1);
 	left_padding(format, &len, zeros);
 	return (len + zeros + (n == 0));
 }
