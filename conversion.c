@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 18:25:41 by truello           #+#    #+#             */
-/*   Updated: 2023/10/26 14:27:09 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/27 21:59:47 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,26 +89,44 @@ char	*ft_itoa(int n)
 	return (r);
 }
 
-char	*hex(size_t n)
+char	*hex(long int n, int n_len)
 {
 	const char	*hex_table = "0123456789abcdef";
 	char		*res;
-	int			n_len;
 	int			i;
 
-	n_len = get_n_len_base(n, 16);
+	n_len = get_hex_len(n, n_len);
 	res = (char *) malloc(n_len + 1);
 	if (!res)
 		return (NULL);
-	res[n_len] = '\0';
-	i = 0;
 	if (n == 0)
 		res[0] = '0';
+	if (n < 0)
+	{
+		i = -1;
+		n *= -1;
+		while (++i < 8)
+			res[i] = 'f';
+	}
+	i = 0;
 	while (n != 0)
 	{
-		res[n_len - 1 - i] = hex_table[n % 16];
+		if (res[i] != 'f' || n % 16 == 0)
+			res[n_len - 1 - i] = hex_table[n % 16];
+		else
+			res[n_len - 1 - i] = hex_table[16 - (n % 16)];
 		n /= 16;
 		i++;
 	}
 	return (res);
+}
+
+void	ft_strup(char *s)
+{
+	while (*s)
+	{
+		if (*s >= 'a' && *s <= 'z')
+			*s -= 32;
+		s++;
+	}
 }

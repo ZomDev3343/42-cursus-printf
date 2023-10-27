@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:29:26 by truello           #+#    #+#             */
-/*   Updated: 2023/10/25 15:17:40 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/26 16:56:56 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	parse_num(const char *str, va_list	*args)
 	return (res);
 }
 
-int	print_zeros(int amount)
+void	print_zeros(int amount)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:57:43 by truello           #+#    #+#             */
-/*   Updated: 2023/10/26 14:25:00 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/27 12:47:29 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_format		newformat(void);
 /* Precision */
 
 int				parse_num(const char *str, va_list *args);
-int				print_zeros(int amount);
+void			print_zeros(int amount);
 int				max(int a, int b);
 int				min(int a, int b);
 
@@ -60,7 +60,8 @@ void			ft_putnbrn(int n, int len);
 
 char			*ft_itoa(int n);
 int				ft_atoi(const char *str);
-char			*hex(size_t n);
+char			*hex(long int n, int n_len);
+void			ft_strup(char *s);
 
 /* Printable Types */
 
@@ -70,9 +71,7 @@ int				print_pointer(t_format *format, void *ptr);
 int				print_decimal(t_format *format, int n);
 int				print_integer(t_format *format, int n);
 int				print_unsigned_decimal(t_format *format, unsigned int n);
-int				print_hexa_low(t_format *format, unsigned int n);
-int				print_hexa_up(t_format *format, unsigned int n);
-
+int				print_hexa(t_format *format, int n, t_bool uppercase);
 /* Print Flags */
 
 int				print_padding(t_format *format, int width);
@@ -91,5 +90,6 @@ int				lop(int len, int precision);
 int				get_zeros(int precision, int print_len);
 void			right_padding(t_format *format, int *len, int zeros);
 void			left_padding(t_format *format, int *len, int zeros);
+int				get_hex_len(int n, int n_len);
 
 #endif

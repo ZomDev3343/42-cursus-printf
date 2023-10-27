@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:46:39 by truello           #+#    #+#             */
-/*   Updated: 2023/10/26 15:45:19 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/27 11:22:06 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,18 @@ int	print_pointer(t_format *format, void *ptr)
 	int		zeros;
 
 	len = 2;
-	hex_ptr = hex((size_t) ptr);
+	hex_ptr = hex((size_t) ptr, get_n_len_base((size_t) ptr, 16));
+	if (!hex_ptr)
+		return (0);
 	len += lop(ft_strlen(hex_ptr), format->precision);
 	zeros = get_zeros(format->precision, ft_strlen(hex_ptr));
 	right_padding(format, &len, zeros);
 	ft_putstr("0x");
 	if (format->precision == 0 && !ptr)
+	{
+		free(hex_ptr);
 		return (2);
+	}
 	print_zeros(zeros);
 	ft_putstrn(hex_ptr, lop(ft_strlen(hex_ptr), format->precision));
 	free(hex_ptr);

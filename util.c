@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:43:12 by truello           #+#    #+#             */
-/*   Updated: 2023/10/26 14:57:34 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/27 11:13:25 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ unsigned int	get_n_len_base(int n, unsigned int base)
 	unsigned int	res;
 
 	nb = n;
-	res = 1;
+	res = 0;
 	if (base == 0)
 		return (0);
-	if (n == 0)
-		return (1);
 	if (n < 0)
 		nb *= -1;
 	while (nb > 0)
@@ -30,7 +28,7 @@ unsigned int	get_n_len_base(int n, unsigned int base)
 		nb /= base;
 		res++;
 	}
-	return (res);
+	return (res + 1);
 }
 
 unsigned int	get_n_len(int n)
