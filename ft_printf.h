@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:57:43 by truello           #+#    #+#             */
-/*   Updated: 2023/10/27 12:47:29 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/30 11:38:59 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ void			ft_putnbrn(int n, int len);
 
 /* Conversion utils */
 
-char			*ft_itoa(int n);
-int				ft_atoi(const char *str);
 char			*hex(long int n, int n_len);
 void			ft_strup(char *s);
 
