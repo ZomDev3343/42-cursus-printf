@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:46:52 by truello           #+#    #+#             */
-/*   Updated: 2023/10/27 11:35:46 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/31 16:28:12 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	print_hexa(t_format *format, int n, t_bool uppercase)
 	int		len;
 	int		zeros;
 
-	hex_n = hex(n, get_n_len_base(n, 16) - 1);
+	hex_n = hex(n, get_n_len_base(n, 16));
 	if (!hex_n)
 		return (0);
 	if (uppercase)

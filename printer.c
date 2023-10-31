@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:46:39 by truello           #+#    #+#             */
-/*   Updated: 2023/10/27 11:22:06 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/31 16:33:54 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	print_string(t_format *format, char *s)
 	int		print_len;
 	size_t	s_len;
 
+	if (!s)
+		s = "(null)";
 	s_len = ft_strlen(s);
 	if (format->precision > 0)
 		s_len = min(s_len, format->precision);
@@ -71,16 +73,16 @@ int	print_decimal(t_format *format, int n)
 	int	len;
 	int	zeros;
 
-	len = get_n_len(n) - 1;
-	zeros = get_zeros(format->precision, get_n_len(n) - 1);
+	len = get_n_len(n);
+	zeros = get_zeros(format->precision, get_n_len(n));
 	right_padding(format, &len, zeros);
 	if (format->precision == 0 && n == 0)
 		return (0);
 	len += print_sign(format, n);
 	print_zeros(zeros);
-	ft_putnbrn(n, get_n_len(n) - 1);
+	ft_putnbrn(n, get_n_len(n));
 	left_padding(format, &len, zeros);
-	return (len + zeros + (n == 0));
+	return (len + zeros);
 }
 
 int	print_unsigned_decimal(t_format *format, unsigned int n)
@@ -88,13 +90,13 @@ int	print_unsigned_decimal(t_format *format, unsigned int n)
 	int	len;
 	int	zeros;
 
-	len = get_n_len(n) - 1;
-	zeros = get_zeros(format->precision, get_n_len(n) - 1);
+	len = get_n_len(n);
+	zeros = get_zeros(format->precision, get_n_len(n));
 	right_padding(format, &len, zeros);
 	if (format->precision == 0 && n == 0)
 		return (0);
 	print_zeros(zeros);
-	ft_putnbrn(n, get_n_len(n) - 1);
+	ft_putnbrn(n, get_n_len(n));
 	left_padding(format, &len, zeros);
-	return (len + zeros + (n == 0));
+	return (len + zeros);
 }

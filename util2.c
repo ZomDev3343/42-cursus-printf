@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:10:31 by truello           #+#    #+#             */
-/*   Updated: 2023/10/27 12:36:52 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/31 16:36:53 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,4 @@ void	left_padding(t_format *format, int *len, int zeros)
 	len1 = *len;
 	if (has_flag('-', format))
 		*len += print_padding(format, format->width - len1 - zeros);
-}
-
-int	get_hex_len(int n, int n_len)
-{
-	if (n >= 0)
-		return (n_len);
-	return (8);
 }

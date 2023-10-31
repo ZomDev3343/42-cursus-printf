@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:57:43 by truello           #+#    #+#             */
-/*   Updated: 2023/10/30 11:38:59 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/31 16:55:34 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void			ft_putnbrn(int n, int len);
 
 /* Conversion utils */
 
-char			*hex(long int n, int n_len);
+char			*hex(unsigned int n, int n_len);
 void			ft_strup(char *s);
 
 /* Printable Types */
@@ -78,8 +78,8 @@ int				print_sign(t_format *format, int n);
 
 /* Util */
 
-unsigned int	get_n_len_base(int n, unsigned int base);
-unsigned int	get_n_len(int n);
+unsigned int	get_n_len_base(unsigned int n, unsigned int base);
+unsigned int	get_n_len(unsigned int n);
 void			add_flag(char flag, t_format *format);
 t_bool			has_flag(char flag, t_format *format);
 size_t			ft_strlen(const char *s);
