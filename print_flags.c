@@ -6,24 +6,29 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 13:50:04 by truello           #+#    #+#             */
-/*   Updated: 2023/10/31 17:01:52 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 13:52:33 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_padding(t_format *format, int width)
+int	print_padding(int width)
 {
 	int	i;
 
 	i = -1;
 	while (++i < width)
-	{
-		if (has_flag('0', format) && !has_flag('-', format))
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
-	}
+		ft_putchar(' ');
+	return (i);
+}
+
+int	print_zero_padding(int width)
+{
+	int	i;
+
+	i = -1;
+	while (++i < width)
+		ft_putchar('0');
 	return (i);
 }
 

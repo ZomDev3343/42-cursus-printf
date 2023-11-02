@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:00:37 by truello           #+#    #+#             */
-/*   Updated: 2023/11/02 12:24:36 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 14:16:00 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	parse_character(const char *s, t_format *format, va_list *args)
 	else if (is_precision(*s))
 	{
 		format->precision = parse_num(s + 1, args);
-		if (*(s + 1) == '*')
+		if (*(s + 1) == '*' || !ft_is_digit(*(s + 1)))
 			return (1);
 		return (1 + get_n_len(format->precision));
 	}

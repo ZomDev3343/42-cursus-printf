@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:46:39 by truello           #+#    #+#             */
-/*   Updated: 2023/11/02 12:02:27 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 14:27:38 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,12 @@ int	print_string(t_format *format, char *s)
 	if (!s)
 		s = "(null)";
 	s_len = ft_strlen(s);
-	if (format->precision > 0)
+	if (format->precision >= 0)
 		s_len = min(s_len, format->precision);
 	print_len = s_len;
-	if (!has_flag('-', format))
-		print_len += print_padding(format, format->width - s_len);
+	right_padding(format, &print_len, 0);
 	ft_putstrn(s, s_len);
-	if (has_flag('-', format))
-		print_len += print_padding(format, format->width - s_len);
+	left_padding(format, &print_len, 0);
 	return (print_len);
 }
 
@@ -75,10 +73,17 @@ int	print_decimal(t_format *format, int n)
 
 	len = get_sn_len(n);
 	zeros = get_zeros(format->precision, get_sn_len(n));
-	right_padding(format, &len, zeros);
 	if (format->precision == 0 && n == 0)
 		return (0);
-	len += print_sign(format, n);
+	len += (n < 0) || has_flag('+', format);
+	right_padding(format, &len, zeros);
+	print_sign(format, n);
+	if (n >= 0 && has_flag(' ', format))
+	{
+		ft_putchar(' ');
+		len++;
+	}
+	zero_padding(format, &len, zeros);
 	print_zeros(zeros);
 	ft_putnbrn(n, get_sn_len(n));
 	left_padding(format, &len, zeros);
@@ -93,6 +98,7 @@ int	print_unsigned_decimal(t_format *format, unsigned int n)
 	len = get_n_len((unsigned int)n);
 	zeros = get_zeros(format->precision, get_n_len(n));
 	right_padding(format, &len, zeros);
+	zero_padding(format, &len, zeros);
 	if (format->precision == 0 && n == 0)
 		return (0);
 	print_zeros(zeros);

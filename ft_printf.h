@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:57:43 by truello           #+#    #+#             */
-/*   Updated: 2023/11/02 11:59:44 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 13:52:49 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,10 @@ int				print_unsigned_decimal(t_format *format, unsigned int n);
 int				print_hexa(t_format *format, unsigned int n, t_bool uppercase);
 /* Print Flags */
 
-int				print_padding(t_format *format, int width);
+int				print_padding(int width);
 int				print_ox(t_format *format);
 int				print_sign(t_format *format, int n);
+int				print_zero_padding(int n);
 
 /* Util */
 
@@ -91,5 +92,6 @@ void			left_padding(t_format *format, int *len, int zeros);
 int				get_hex_len(int n, int n_len);
 
 unsigned int	get_sn_len(int n);
+void            zero_padding(t_format *format, int *len, int zeros);
 
 #endif

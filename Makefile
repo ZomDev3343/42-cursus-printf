@@ -23,6 +23,8 @@ $(NAME): $(OBJ) $(HEADER)
 %.o: %.c
 	cc -c -Wall -Wextra -Werror $< -o $@
 
+bonus: $(NAME)
+
 test:
 	clang $(SRC) $(TEST)
 
