@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:57:43 by truello           #+#    #+#             */
-/*   Updated: 2023/11/02 13:52:49 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 14:29:44 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,6 @@ void			left_padding(t_format *format, int *len, int zeros);
 int				get_hex_len(int n, int n_len);
 
 unsigned int	get_sn_len(int n);
-void            zero_padding(t_format *format, int *len, int zeros);
+void			zero_padding(t_format *format, int *len, int zeros);
 
 #endif
