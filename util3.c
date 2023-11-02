@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format.c                                           :+:      :+:    :+:   */
+/*   util3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 16:04:06 by truello           #+#    #+#             */
-/*   Updated: 2023/11/02 11:38:08 by truello          ###   ########.fr       */
+/*   Created: 2023/11/02 12:00:28 by truello           #+#    #+#             */
+/*   Updated: 2023/11/02 12:23:54 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_bool	is_specifier(char c)
+unsigned int	get_sn_len(int n)
 {
-	return (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i'
-		|| c == 'u' || c == 'x' || c == 'X' || c == '%');
-}
+	long			nb;
+	unsigned int	n_len;
 
-t_bool	is_flag(char c)
-{
-	return (c == '-' || c == '0' || c == '#' || c == ' ' || c == '+');
-}
-
-t_bool	is_width(char c)
-{
-	return (c == '*' || ft_is_digit(c));
-}
-
-t_bool	is_precision(char c)
-{
-	return (c == '.');
-}
-
-t_bool	ft_is_digit(char c)
-{
-	return (c >= '0' && c <= '9');
+	n_len = 0;
+	nb = n;
+	if (n == 0)
+		return (1);
+	if (nb < 0)
+		nb *= -1;
+	while (nb > 0)
+	{
+		n_len++;
+		nb /= 10;
+	}
+	return (n_len);
 }

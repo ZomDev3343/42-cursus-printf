@@ -8,6 +8,7 @@ SRC=ft_printf.c \
 	conversion.c \
 	util.c \
 	util2.c \
+	util3.c \
 	print_flags.c
 OBJ=$(SRC:.c=.o)
 TEST=test.c

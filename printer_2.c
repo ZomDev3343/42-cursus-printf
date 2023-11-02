@@ -6,14 +6,14 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:46:52 by truello           #+#    #+#             */
-/*   Updated: 2023/10/31 16:28:12 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 11:54:50 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int	print_hexa(t_format *format, int n, t_bool uppercase)
+int	print_hexa(t_format *format, unsigned int n, t_bool uppercase)
 {
 	char	*hex_n;
 	int		len;

@@ -6,13 +6,13 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:43:12 by truello           #+#    #+#             */
-/*   Updated: 2023/10/31 16:54:32 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 11:51:47 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	get_n_len_base(unsigned int n, unsigned int base)
+unsigned int	get_n_len_base(unsigned long n, unsigned int base)
 {
 	unsigned long	nb;
 	unsigned int	res;
@@ -33,7 +33,7 @@ unsigned int	get_n_len_base(unsigned int n, unsigned int base)
 	return (res);
 }
 
-unsigned int	get_n_len(unsigned int n)
+unsigned int	get_n_len(unsigned long n)
 {
 	return (get_n_len_base(n, 10));
 }

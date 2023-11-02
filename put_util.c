@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 10:52:23 by truello           #+#    #+#             */
-/*   Updated: 2023/10/31 16:22:32 by truello          ###   ########.fr       */
+/*   Updated: 2023/10/31 17:19:32 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_putstrn(const char *str, int n)
 	return (i);
 }
 
-void	ft_putnbrn(int n, int len)
+void	ft_putnbrn(long n, int len)
 {
 	long int	nb;
 

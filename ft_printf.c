@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:00:37 by truello           #+#    #+#             */
-/*   Updated: 2023/10/31 17:13:41 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 12:24:36 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	print_format(t_format *format, va_list *args)
 {
 	if (format->specifier == 'c')
 		return (print_character(format, va_arg(*args, int)));
+	else if (format->specifier == '%')
+		return (print_character(format, '%'));
 	else if (format->specifier == 's')
 		return (print_string(format, va_arg(*args, char *)));
 	else if (format->specifier == 'p')
@@ -67,7 +69,7 @@ static int	parse_format(const char *str, va_list *args, int *total)
 	while (str[i] && !is_specifier(str[i]))
 	{
 		if ((is_flag(str[i]) && (format.width != -1
-				|| format.precision != -1))
+					|| format.precision != -1))
 			|| (is_width(str[i]) && format.precision != -1))
 			return (0);
 		parse_res = parse_character(str + i, &format, args);
@@ -93,7 +95,7 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	while (*str)
 	{
-		if (*str == '%' && *(str + 1) != '%')
+		if (*str == '%')
 		{
 			format_len = parse_format(str + 1, &args, &total);
 			if (format_len == 0)
@@ -103,7 +105,7 @@ int	ft_printf(const char *str, ...)
 		else
 		{
 			ft_putchar(*str);
-			str += 1 + (*(str) == '%');
+			str++;
 			total++;
 		}
 	}

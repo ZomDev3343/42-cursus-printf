@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:46:39 by truello           #+#    #+#             */
-/*   Updated: 2023/10/31 16:33:54 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 12:02:27 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	print_pointer(t_format *format, void *ptr)
 	int		zeros;
 
 	len = 2;
-	hex_ptr = hex((size_t) ptr, get_n_len_base((size_t) ptr, 16));
+	hex_ptr = hex((unsigned long) ptr, get_n_len_base((unsigned long) ptr, 16));
 	if (!hex_ptr)
 		return (0);
 	len += lop(ft_strlen(hex_ptr), format->precision);
@@ -73,14 +73,14 @@ int	print_decimal(t_format *format, int n)
 	int	len;
 	int	zeros;
 
-	len = get_n_len(n);
-	zeros = get_zeros(format->precision, get_n_len(n));
+	len = get_sn_len(n);
+	zeros = get_zeros(format->precision, get_sn_len(n));
 	right_padding(format, &len, zeros);
 	if (format->precision == 0 && n == 0)
 		return (0);
 	len += print_sign(format, n);
 	print_zeros(zeros);
-	ft_putnbrn(n, get_n_len(n));
+	ft_putnbrn(n, get_sn_len(n));
 	left_padding(format, &len, zeros);
 	return (len + zeros);
 }
@@ -90,7 +90,7 @@ int	print_unsigned_decimal(t_format *format, unsigned int n)
 	int	len;
 	int	zeros;
 
-	len = get_n_len(n);
+	len = get_n_len((unsigned int)n);
 	zeros = get_zeros(format->precision, get_n_len(n));
 	right_padding(format, &len, zeros);
 	if (format->precision == 0 && n == 0)

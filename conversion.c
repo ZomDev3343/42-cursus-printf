@@ -6,13 +6,13 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 18:25:41 by truello           #+#    #+#             */
-/*   Updated: 2023/10/31 16:40:49 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 11:50:41 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*hex(unsigned int n, int n_len)
+char	*hex(unsigned long n, int n_len)
 {
 	const char	*hex_table = "0123456789abcdef";
 	char		*res;

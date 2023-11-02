@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:57:43 by truello           #+#    #+#             */
-/*   Updated: 2023/10/31 16:55:34 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 11:59:44 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ int				min(int a, int b);
 void			ft_putchar(char c);
 void			ft_putstr(const char *str);
 int				ft_putstrn(const char *str, int n);
-void			ft_putnbrn(int n, int len);
+void			ft_putnbrn(long n, int len);
 
 /* Conversion utils */
 
-char			*hex(unsigned int n, int n_len);
+char			*hex(unsigned long n, int n_len);
 void			ft_strup(char *s);
 
 /* Printable Types */
@@ -69,7 +69,7 @@ int				print_pointer(t_format *format, void *ptr);
 int				print_decimal(t_format *format, int n);
 int				print_integer(t_format *format, int n);
 int				print_unsigned_decimal(t_format *format, unsigned int n);
-int				print_hexa(t_format *format, int n, t_bool uppercase);
+int				print_hexa(t_format *format, unsigned int n, t_bool uppercase);
 /* Print Flags */
 
 int				print_padding(t_format *format, int width);
@@ -78,8 +78,8 @@ int				print_sign(t_format *format, int n);
 
 /* Util */
 
-unsigned int	get_n_len_base(unsigned int n, unsigned int base);
-unsigned int	get_n_len(unsigned int n);
+unsigned int	get_n_len_base(unsigned long n, unsigned int base);
+unsigned int	get_n_len(unsigned long n);
 void			add_flag(char flag, t_format *format);
 t_bool			has_flag(char flag, t_format *format);
 size_t			ft_strlen(const char *s);
@@ -89,5 +89,7 @@ int				get_zeros(int precision, int print_len);
 void			right_padding(t_format *format, int *len, int zeros);
 void			left_padding(t_format *format, int *len, int zeros);
 int				get_hex_len(int n, int n_len);
+
+unsigned int	get_sn_len(int n);
 
 #endif
