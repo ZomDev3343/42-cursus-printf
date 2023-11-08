@@ -1,15 +1,11 @@
 SRC=ft_printf.c \
-	precision.c \
 	format.c \
-	format_2.c \
 	put_util.c \
 	printer.c \
 	printer_2.c \
 	conversion.c \
 	util.c \
-	util2.c \
-	util3.c \
-	print_flags.c
+	util2.c
 OBJ=$(SRC:.c=.o)
 TEST=test.c
 NAME=libftprintf.a

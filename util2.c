@@ -5,56 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 11:10:31 by truello           #+#    #+#             */
-/*   Updated: 2023/11/02 15:33:10 by truello          ###   ########.fr       */
+/*   Created: 2023/11/02 12:00:28 by truello           #+#    #+#             */
+/*   Updated: 2023/11/08 12:15:20 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/* Choose the len or the precision for printing */
-int	lop(int len, int precision)
+unsigned int	get_sn_len(int n)
 {
-	if (precision == -1)
-		return (len);
-	return (max(len, precision));
-}
+	long			nb;
+	unsigned int	n_len;
 
-int	get_zeros(int precision, int print_len)
-{
-	if (precision == -1)
-		return (0);
-	return (max(precision - print_len, 0));
-}
-
-void	right_padding(t_format *format, int *len, int zeros)
-{
-	int	len1;
-
-	len1 = *len;
-	if (!has_flag('-', format) && !has_flag('0', format))
-		*len += print_padding(format->width - len1 - zeros);
-}
-
-void	left_padding(t_format *format, int *len, int zeros)
-{
-	int	len1;
-
-	len1 = *len;
-	if (has_flag('-', format))
-		*len += print_padding(format->width - len1 - zeros);
-}
-
-void	zero_padding(t_format *format, int *len, int zeros)
-{
-	int	len1;
-
-	len1 = *len;
-	if (has_flag('0', format) && !has_flag('-', format))
+	n_len = 0;
+	nb = n;
+	if (n == 0)
+		return (1);
+	if (nb < 0)
+		nb *= -1;
+	while (nb > 0)
 	{
-		if (format->precision == -1)
-			*len += print_zero_padding(format->width - len1 - zeros);
-		else
-			*len += print_padding(format->width - len1 - zeros);
+		n_len++;
+		nb /= 10;
 	}
+	return (n_len);
 }

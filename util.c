@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:43:12 by truello           #+#    #+#             */
-/*   Updated: 2023/11/02 11:51:47 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/08 12:11:27 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,36 +36,6 @@ unsigned int	get_n_len_base(unsigned long n, unsigned int base)
 unsigned int	get_n_len(unsigned long n)
 {
 	return (get_n_len_base(n, 10));
-}
-
-void	add_flag(char flag, t_format *format)
-{
-	int	i;
-
-	i = 0;
-	while (i < 5)
-	{
-		if (format->flags[i] == -1)
-		{
-			format->flags[i] = flag;
-			return ;
-		}
-		i++;
-	}
-}
-
-t_bool	has_flag(char flag, t_format *format)
-{
-	int	i;
-
-	i = 0;
-	while (i < 5)
-	{
-		if (format->flags[i] == flag)
-			return (TRUE);
-		i++;
-	}
-	return (FALSE);
 }
 
 size_t	ft_strlen(const char *s)

@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:57:43 by truello           #+#    #+#             */
-/*   Updated: 2023/11/08 11:56:30 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/08 12:05:04 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ void			ft_strup(char *s);
 
 /* Printable Types */
 
-int				print_character(t_format *format, int c);
-int				print_string(t_format *format, char *str);
-int				print_pointer(t_format *format, void *ptr);
-int				print_decimal(t_format *format, int n);
-int				print_integer(t_format *format, int n);
-int				print_unsigned_decimal(t_format *format, unsigned int n);
-int				print_hexa(t_format *format, unsigned int n, t_bool uppercase);
+int				print_character(int c);
+int				print_string(char *str);
+int				print_pointer(void *ptr);
+int				print_decimal(int n);
+int				print_integer(int n);
+int				print_unsigned_decimal(unsigned int n);
+int				print_hexa(unsigned int n, t_bool uppercase);
 /* Print Flags */
 
 int				print_padding(int width);
