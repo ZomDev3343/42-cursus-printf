@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:46:39 by truello           #+#    #+#             */
-/*   Updated: 2023/11/08 12:17:55 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/08 16:06:19 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	print_pointer(void *ptr)
 	int		len;
 
 	len = 2;
+	if (!ptr)
+		return (write(1, "(nil)", 5));
 	hex_ptr = hex((unsigned long) ptr, get_n_len_base((unsigned long) ptr, 16));
 	if (!hex_ptr)
 		return (0);
