@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:46:39 by truello           #+#    #+#             */
-/*   Updated: 2023/11/08 12:08:41 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/08 12:17:55 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	print_pointer(void *ptr)
 int	print_decimal(int n)
 {
 	int	len;
-	
+
 	len = get_sn_len(n) + (n < 0);
 	if (n < 0)
 		ft_putchar('-');
