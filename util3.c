@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:00:28 by truello           #+#    #+#             */
-/*   Updated: 2023/11/02 12:23:54 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 15:48:54 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,17 @@ unsigned int	get_sn_len(int n)
 		nb /= 10;
 	}
 	return (n_len);
+}
+
+unsigned int	get_digit_len(const char *s)
+{
+	unsigned int	len;
+
+	len = 0;
+	while (ft_is_digit(*s) && *s)
+	{
+		len++;
+		s++;
+	}
+	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:10:31 by truello           #+#    #+#             */
-/*   Updated: 2023/11/02 13:54:01 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 15:33:10 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,10 @@ void	zero_padding(t_format *format, int *len, int zeros)
 
 	len1 = *len;
 	if (has_flag('0', format) && !has_flag('-', format))
-		*len += print_zero_padding(format->width - len1 - zeros);
+	{
+		if (format->precision == -1)
+			*len += print_zero_padding(format->width - len1 - zeros);
+		else
+			*len += print_padding(format->width - len1 - zeros);
+	}
 }

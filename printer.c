@@ -6,7 +6,7 @@
 /*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:46:39 by truello           #+#    #+#             */
-/*   Updated: 2023/11/02 14:27:38 by truello          ###   ########.fr       */
+/*   Updated: 2023/11/02 15:58:50 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	print_decimal(t_format *format, int n)
 	len = get_sn_len(n);
 	zeros = get_zeros(format->precision, get_sn_len(n));
 	if (format->precision == 0 && n == 0)
-		return (0);
+		return (((format->width > -1) * format->width));
 	len += (n < 0) || has_flag('+', format);
 	right_padding(format, &len, zeros);
 	print_sign(format, n);
